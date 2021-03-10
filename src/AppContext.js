@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 export const AppContext = React.createContext({});
 
 export const AppProvider = ({ children }) => {
@@ -13,7 +13,12 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  const [appData, appDispatch] = React.useReducer(reducer, {
+  // const [appData, appDispatch] = React.useReducer(reducer, {
+  //   todoList: [],
+  //   activeToDoItem: { id: 0 }
+  // });
+
+  const [appData, appDispatch] = useReducer(reducer, {
     todoList: [],
     activeToDoItem: { id: 0 }
   });
